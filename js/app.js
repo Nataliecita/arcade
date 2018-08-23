@@ -3,12 +3,13 @@ var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
-    // x pos
-    // y pos
-
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+
+    // x pos
+    this.x = 10;
+    this.y = 100;
 };
 
 // Update the enemy's position, required method for game
@@ -36,7 +37,11 @@ let allEnemies = [new Enemy()];
 // This class requires an update(), render() and
 // a handleInput() method.
 var Player = function() {
- this.sprite = 'images/char-boy.png';
+    this.sprite = 'images/char-boy.png';
+
+    // x pos
+    this.x = 200;
+    this.y = 400;
 };
 
 Player.prototype.update = function(dt) {
