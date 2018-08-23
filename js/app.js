@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -8,8 +8,9 @@ var Enemy = function() {
     this.sprite = 'images/enemy-bug.png';
 
     // x pos
-    this.x = 0;
-    this.y = 70;
+    this.x = -90;
+    this.y = y;
+    this.speed = speed;
 };
 
 // Update the enemy's position, required method for game
@@ -21,9 +22,9 @@ Enemy.prototype.update = function(dt) {
     //if in game area
     if (this.x < 500) {
         // increment x by speed * dt
-        this.x += 50 * dt;
+        this.x += this.speed * dt;
     } else {
-        this.x = 0;
+        this.x = -100;
     }
   
 };
@@ -33,7 +34,6 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-let allEnemies = [new Enemy()];
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -56,10 +56,6 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function(dt) {
 };
 
-let player = new Player();
-
-
-
 // Player class
     // constructor
 
@@ -81,7 +77,16 @@ let player = new Player();
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
+const allEnemies = [];
+const bug1 = new Enemy(60, 200);
+const bug2 = new Enemy(150, 100);
+const bug3 = new Enemy(230, 130);
+const bug4 = new Enemy(150, 150);
+
+allEnemies.push(bug1, bug2, bug3, bug4);
+
 // Place the player object in a variable called player
+const player = new Player();
 
 
 
