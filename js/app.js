@@ -47,13 +47,28 @@ var Player = function() {
 };
 
 Player.prototype.update = function(dt) {
+
 };
 
 Player.prototype.render = function() {
  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.handleInput = function(dt) {
+Player.prototype.handleInput = function(direction) {
+    switch (direction) {
+        case "left":
+            console.log("left");
+            break;
+        case "up":
+            console.log("up");
+            break;
+        case "right":
+            console.log("right");
+            break;
+        case "down":
+            console.log("down");
+            break; 
+    }
 };
 
 // Player class
