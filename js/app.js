@@ -55,20 +55,36 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.handleInput = function(direction) {
+    // column size is 101, row size is 83
+    const gameBoundaries = {
+        left: -2,
+        up: -15,
+        right: 402,
+        down: 400
+    }
+    
     switch (direction) {
         case "left":
-            console.log("left");
-            break;
+            if(this.x > gameBoundaries["left"]){
+                this.x -=101;
+            }
+           break;       
         case "up":
-            console.log("up");
+            if(this.y > gameBoundaries["up"]){
+                this.y -=83;
+            }
             break;
         case "right":
-            console.log("right");
+            if(this.x < gameBoundaries["right"]){
+                this.x += 101;
+            }
             break;
         case "down":
-            console.log("down");
+            if(this.y < gameBoundaries["down"]){
+                this.y += 83;
+            }
             break; 
-    }
+    }  
 };
 
 // Player class
