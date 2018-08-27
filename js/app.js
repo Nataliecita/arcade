@@ -1,13 +1,8 @@
 // Enemies our player must avoid
 var Enemy = function(y, speed) {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-
-    // x pos
     this.x = -90;
     this.y = y;
     this.speed = speed;
@@ -25,8 +20,7 @@ Enemy.prototype.update = function(dt) {
         this.x += this.speed * dt;
     } else {
         this.x = -100;
-    }
-  
+    }  
 };
 
 // Draw the enemy on the screen, required method for game
@@ -35,19 +29,15 @@ Enemy.prototype.render = function() {
 };
 
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
 var Player = function() {
-    this.sprite = 'images/char-boy.png';
-
-    // x pos
+    this.sprite = 'images/char-cat-girl.png';
     this.startX = 200;
     this.startY = 400;
     this.x = this.startX;
     this.y = this.startY;
 };
 
+//updates the players position based on game state
 Player.prototype.update = function(dt) {
     for(let enemy of allEnemies) {
         //check collisions
@@ -55,14 +45,21 @@ Player.prototype.update = function(dt) {
             this.reset();
         }
     }
-    // Game won?
+    // Game won 
+    if(this.y ===  -15){
+        this.reset();
+        alert("Congrats you won!");
+        console.log("game won");
+    }
 
 };
 
+// Draws player on board
 Player.prototype.render = function() {
  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// Handle keyboard input from the user
 Player.prototype.handleInput = function(direction) {
     // column size is 101, row size is 83
     const gameBoundaries = {
@@ -96,13 +93,12 @@ Player.prototype.handleInput = function(direction) {
     }  
 };
 
+//resets player's position when collision or game won occurs
 Player.prototype.reset = function() {
     this.x = this.startX;
     this.y = this.startY;
 };
 
-
-// Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 const allEnemies = [];
 const bug1 = new Enemy(68, 200);
@@ -112,10 +108,7 @@ const bug4 = new Enemy(151, 150);
 
 allEnemies.push(bug1, bug2, bug3, bug4);
 
-// Place the player object in a variable called player
 const player = new Player();
-
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
