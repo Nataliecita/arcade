@@ -1,13 +1,8 @@
 // Enemies our player must avoid
 var Enemy = function(y, speed) {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-
-    // x pos
     this.x = -90;
     this.y = y;
     this.speed = speed;
@@ -25,8 +20,7 @@ Enemy.prototype.update = function(dt) {
         this.x += this.speed * dt;
     } else {
         this.x = -100;
-    }
-  
+    }  
 };
 
 // Draw the enemy on the screen, required method for game
@@ -35,13 +29,8 @@ Enemy.prototype.render = function() {
 };
 
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
 var Player = function() {
     this.sprite = 'images/char-boy.png';
-
-    // x pos
     this.startX = 200;
     this.startY = 400;
     this.x = this.startX;
@@ -55,7 +44,11 @@ Player.prototype.update = function(dt) {
             this.reset();
         }
     }
-    // Game won?
+    // Game won 
+    if(this.y ===  -15){
+        this.reset();
+        console.log("game won");
+    }
 
 };
 
