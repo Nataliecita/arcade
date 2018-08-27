@@ -47,6 +47,7 @@ Player.prototype.update = function(dt) {
     // Game won 
     if(this.y ===  -15){
         this.reset();
+        alert("Congrats you won!");
         console.log("game won");
     }
 
