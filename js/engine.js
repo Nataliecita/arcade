@@ -96,6 +96,18 @@ var Engine = (function(global) {
         player.update();
     }
 
+
+    /* Check collision between bugs and player
+     *
+     *
+    */
+
+    // function checkCollisions() {
+    //     // console.log(enemy);
+    //     // console.log(this);
+
+    // }
+
     /* This function initially draws the "game level", it will then call
      * the renderEntities function. Remember, this function is called every
      * game tick (or loop of the game engine) because that's how games work -

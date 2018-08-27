@@ -42,11 +42,20 @@ var Player = function() {
     this.sprite = 'images/char-boy.png';
 
     // x pos
-    this.x = 200;
-    this.y = 400;
+    this.startX = 200;
+    this.startY = 400;
+    this.x = this.startX;
+    this.y = this.startY;
 };
 
 Player.prototype.update = function(dt) {
+    for(let enemy of allEnemies) {
+        //check collisions
+        if(enemy.y === this.y && (enemy.x + 75 > this.x && enemy.x < this.x + 75)){ 
+            this.reset();
+        }
+    }
+    // Game won?
 
 };
 
@@ -87,32 +96,19 @@ Player.prototype.handleInput = function(direction) {
     }  
 };
 
-// Player class
-    // constructor
-
-    // properties
-        // x pos
-        // y pos
-        // Sprite image
-    // methods
-        // update Position
-            // check collisions
-                // player collided?
-            // Game won?
-                // player reach final tile?
-        // Render
-            // Draw player on current coordinates
-        // handle input
-            // Update player's x and y property        
+Player.prototype.reset = function() {
+    this.x = this.startX;
+    this.y = this.startY;
+};
 
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 const allEnemies = [];
-const bug1 = new Enemy(60, 200);
-const bug2 = new Enemy(150, 100);
-const bug3 = new Enemy(230, 130);
-const bug4 = new Enemy(150, 150);
+const bug1 = new Enemy(68, 200);
+const bug2 = new Enemy(151, 100);
+const bug3 = new Enemy(234, 130);
+const bug4 = new Enemy(151, 150);
 
 allEnemies.push(bug1, bug2, bug3, bug4);
 
