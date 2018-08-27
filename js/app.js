@@ -56,7 +56,6 @@ Player.prototype.update = function(dt) {
         }
     }
     // Game won?
-        // player reach final tile?
 
 };
 
@@ -98,28 +97,9 @@ Player.prototype.handleInput = function(direction) {
 };
 
 Player.prototype.reset = function() {
-    this.x, this.y = this.startX, this.startY;
-    console.log("collliideee");
+    this.x = this.startX;
+    this.y = this.startY;
 };
-
-
-// Player class
-    // constructor
-
-    // properties
-        // x pos
-        // y pos
-        // Sprite image
-    // methods
-        // update Position
-            // check collisions
-                // player collided?
-            // Game won?
-                // player reach final tile?
-        // Render
-            // Draw player on current coordinates
-        // handle input
-            // Update player's x and y property        
 
 
 // Now instantiate your objects.
