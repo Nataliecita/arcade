@@ -37,6 +37,7 @@ var Player = function() {
     this.y = this.startY;
 };
 
+//updates the players position based on game state
 Player.prototype.update = function(dt) {
     for(let enemy of allEnemies) {
         //check collisions
@@ -53,10 +54,12 @@ Player.prototype.update = function(dt) {
 
 };
 
+// Draws player on board
 Player.prototype.render = function() {
  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// Handle keyboard input from the user
 Player.prototype.handleInput = function(direction) {
     // column size is 101, row size is 83
     const gameBoundaries = {
@@ -90,13 +93,12 @@ Player.prototype.handleInput = function(direction) {
     }  
 };
 
+//resets player's position when collision or game won occurs
 Player.prototype.reset = function() {
     this.x = this.startX;
     this.y = this.startY;
 };
 
-
-// Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 const allEnemies = [];
 const bug1 = new Enemy(68, 200);
@@ -106,10 +108,7 @@ const bug4 = new Enemy(151, 150);
 
 allEnemies.push(bug1, bug2, bug3, bug4);
 
-// Place the player object in a variable called player
 const player = new Player();
-
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
