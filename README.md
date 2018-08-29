@@ -14,3 +14,4 @@ Player must reach the water using the up, right, down, left keyboard arrows with
 ## Additional information
 
 This project was completed as part of Udacity's Front-End Nanodegree Program. [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) 
+
