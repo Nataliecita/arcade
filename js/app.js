@@ -1,5 +1,7 @@
+'use strict';
+
 // Enemies our player must avoid
-var Enemy = function(y, speed) {
+const Enemy = function(y, speed) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -48,8 +50,8 @@ Player.prototype.update = function(dt) {
     // Game won 
     if(this.y ===  -15){
         this.reset();
-        alert("Congrats you won!");
-        console.log("game won");
+        alert('Congrats you won!');
+        console.log('game won');
     }
 
 };
@@ -100,11 +102,12 @@ Player.prototype.reset = function() {
 };
 
 // Place all enemy objects in an array called allEnemies
-const allEnemies = [];
+const allEnemies = [
 const bug1 = new Enemy(68, 200);
 const bug2 = new Enemy(151, 100);
 const bug3 = new Enemy(234, 130);
 const bug4 = new Enemy(151, 150);
+];
 
 allEnemies.push(bug1, bug2, bug3, bug4);
 
