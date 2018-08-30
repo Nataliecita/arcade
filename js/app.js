@@ -72,23 +72,23 @@ Player.prototype.handleInput = function(direction) {
     }
     
     switch (direction) {
-        case "left":
-            if(this.x > gameBoundaries["left"]){
+        case 'left':
+            if(this.x > gameBoundaries['left']){
                 this.x -=101;
             }
            break;       
-        case "up":
-            if(this.y > gameBoundaries["up"]){
+        case 'up':
+            if(this.y > gameBoundaries['up']){
                 this.y -=83;
             }
             break;
-        case "right":
-            if(this.x < gameBoundaries["right"]){
+        case 'right':
+            if(this.x < gameBoundaries['right']){
                 this.x += 101;
             }
             break;
-        case "down":
-            if(this.y < gameBoundaries["down"]){
+        case 'down':
+            if(this.y < gameBoundaries['down']){
                 this.y += 83;
             }
             break; 
