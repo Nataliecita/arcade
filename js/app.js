@@ -103,13 +103,11 @@ Player.prototype.reset = function() {
 
 // Place all enemy objects in an array called allEnemies
 const allEnemies = [
-const bug1 = new Enemy(68, 200);
-const bug2 = new Enemy(151, 100);
-const bug3 = new Enemy(234, 130);
-const bug4 = new Enemy(151, 150);
+    new Enemy(68, 200),
+    new Enemy(151, 100),
+    new Enemy(234, 130),
+    new Enemy(151, 150)
 ];
-
-allEnemies.push(bug1, bug2, bug3, bug4);
 
 const player = new Player();
 
